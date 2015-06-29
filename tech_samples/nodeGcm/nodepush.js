@@ -14,10 +14,11 @@ var message = new gcm.Message({
     }
 });
 
-var server_access_key = 'AIzaSyCDvkx2gmugOYH8oRO0lp9jMg-CqY-rcPg';
+var server_access_key = 'AIzaSyAjDbxmXPKbc2JzfvBF-QGum3toABS0_Co'; //API Key
 var sender = new gcm.Sender(server_access_key);
 var registrationIds = [];
 
+//TO-DO : The need to implement to use the saved registrationID.
 var registration_id = 'APA91bFPfZle641hnRmBKIRCceS2JcVgqTi9o99Yw9u7wXSpQP-j6a_BJfDevsW2_i0nkT_wv9THIPNJ63OdqduHj4gqZxI_OK1iK3yOVvUeai6XrWCLCZc3GQv_BIsrR-0tmLGl0Y1IHCDb7krZvAo2WYkdtzkgsg';
 
 registrationIds.push(registration_id);
