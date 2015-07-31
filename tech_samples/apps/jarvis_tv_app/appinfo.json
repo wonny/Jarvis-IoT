@@ -1,0 +1,22 @@
+{
+	"id": "com.lgcns.jarvis",
+	"version": "0.0.1",
+	"vendor": "LG CNS",
+	"type": "web",
+	"main": "index.html",
+	"title": "singlepane",
+	"icon": "smallAppIcon.png",
+	"largeIcon": "largeAppIcon.png",
+	"uiRevision":2,
+	"enyoVersion": "2.5",
+	"onDeviceSource": {
+		"enyo": "$enyo-framework/2.5/enyo",
+		"lib/layout": "$enyo-framework/2.5/lib/layout",
+		"lib/moonstone": "$enyo-framework/2.5/lib/moonstone",
+		"lib/spotlight": "$enyo-framework/2.5/lib/spotlight",
+		"lib/enyo-ilib": "$enyo-framework/2.5/lib/enyo-ilib",
+		"lib/enyo-cordova": "$enyo-framework/2.5/lib/enyo-cordova",
+		"lib/enyo-webos": "$enyo-framework/2.5/lib/enyo-webos",
+		"lib/onyx-master": "$enyo-framework/2.5/lib/onyx-master"
+	}
+}
