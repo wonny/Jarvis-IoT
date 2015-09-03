@@ -67,8 +67,10 @@ enyo.kind({
     handleKeyDown: function(inSender, inEvent) {
     // Can use inEvent.keyCode to detect non-character keys
         style = "background-color: #111111";
-        
-        if (inEvent.keyCode === 38) {
+        max_list_count = this.$.list.count;
+        page_per_picture_count = 8
+
+         if (inEvent.keyCode === 38) {
     		// respond to up key
         	if (this.key_index > 0){
 	        	this.key_index--;
@@ -77,16 +79,47 @@ enyo.kind({
 	        }else if(this.key_index == 0){
 	        	this.$.list.select(this.key_index, style);
 	        }
+
+        	// scrolling up
+			if (this.key_index % page_per_picture_count ==0){
+			   	row = this.key_index;
+			   	this.$.list.scrollToRow(row-7);
+			   	}
+
         }else if(inEvent.keyCode === 40){
         	// respond to down key
-        	if (this.key_index >= 0){
-        		this.key_index++;
-	        	this.$.list.select(this.key_index, style);
-        	}
-    	}      	
-        
-    },
+        	if (this.key_index < max_list_count-1){
+        		if (this.key_index >= 0){
+        			this.key_index++;
+        			
+        			console.log(this.key_index);
+	        		this.$.list.select(this.key_index, style);
+	        		
+	        	}
+	        	// scrolling down
+				if (this.key_index % page_per_picture_count ==0){
+			    	row = this.key_index;
+			    	this.$.list.scrollToRow(row);
+		    	}
+       		}
+       	}      	
 
+    // get photo by keyboard event
+		if (enyo.Panels.isScreenNarrow()) {
+			this.setIndex(1);
+		}
+		this.$.imageSpinner.start();
+		
+		var item = this.results[this.key_index];
+
+		if (item.original == this.$.flickrImage.getSrc()) {
+			this.imageLoaded();
+		} else {
+			this.$.flickrImage.hide();
+			this.$.flickrImage.setSrc(item.original);
+		}
+
+    },
 
 	search: function() {
 		this.searchText = this.$.searchInput.getValue();
@@ -109,8 +142,8 @@ enyo.kind({
 	setupItem: function(inSender, inEvent) {
 		var i = inEvent.index;
 		var item = this.results[i];
+		
 		this.$.item.addRemoveClass("onyx-selected", inSender.isSelected(inEvent.index));
-
 		this.$.thumbnail.setSrc(item.thumbnail);
 		this.$.title.setContent(item.title || "Untitled");
 		this.$.more.canGenerate = !this.results[i+1];
@@ -122,6 +155,8 @@ enyo.kind({
 		this.$.flickrSearch.search(this.searchText, this.page);
 	},
 	itemTap: function(inSender, inEvent) {
+		this.$.list.select(inEvent.index);
+		this.key_index = inEvent.index; //keyboard set when using mouse click		
 		if (enyo.Panels.isScreenNarrow()) {
 			this.setIndex(1);
 		}
