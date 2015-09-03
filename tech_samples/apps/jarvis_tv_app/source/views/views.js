@@ -9,8 +9,10 @@ enyo.kind({
 	kind: "Panels",
 	classes: "panels-flickr-panels enyo-unselectable enyo-fit main-view",
 	arrangerKind: "CollapsingArranger",
+	key_index : 0,
 	components: [
 		{layoutKind: "FittableRowsLayout", components: [
+			{kind: "enyo.Signals", onkeydown: "handleKeyDown"},
 			{kind: "onyx.Toolbar", classes: "panels-toolbar", components: [
 				{kind: "onyx.InputDecorator", alwaysLooksFocused: true, style: "width: 90%;", layoutKind: "FittableColumnsLayout", components: [
 					{name: "searchInput", fit: true, kind: "onyx.Input", placeholder: "Enter text here", value: "", onchange: "search"},
@@ -61,6 +63,31 @@ enyo.kind({
 			}
 		};
 	}),
+
+    handleKeyDown: function(inSender, inEvent) {
+    // Can use inEvent.keyCode to detect non-character keys
+        style = "background-color: #111111";
+        
+        if (inEvent.keyCode === 38) {
+    		// respond to up key
+        	if (this.key_index > 0){
+	        	this.key_index--;
+	            console.log(this.key_index);
+	            this.$.list.select(this.key_index, style);
+	        }else if(this.key_index == 0){
+	        	this.$.list.select(this.key_index, style);
+	        }
+        }else if(inEvent.keyCode === 40){
+        	// respond to down key
+        	if (this.key_index >= 0){
+        		this.key_index++;
+	        	this.$.list.select(this.key_index, style);
+        	}
+    	}      	
+        
+    },
+
+
 	search: function() {
 		this.searchText = this.$.searchInput.getValue();
 		this.page = 0;
