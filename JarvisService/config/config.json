@@ -1,0 +1,27 @@
+{
+	"database" : {
+		"dbName" : "deviceDB",
+		"dbPort" : "27017",
+		"dbHost" : "localhost"
+	},
+	"server" : {
+		"port" : "9000"
+	},
+	"gcm" : {
+		"apiKey" : "AIzaSyAjDbxmXPKbc2JzfvBF-QGum3toABS0_Co"
+	},
+	"flickr" : {
+		"id" : "IoTPlatform",
+		"passwd" : "12345qwert",
+		"apiKey" : "eff366310adac20e46fdd630520f38bb",
+		"secret" : "71f91ab6b56977b1",
+		"userId" : "132477211@N02",
+		"permission" : "delete",
+		"accessToken" : "72157654892450561-93beba0393a9aacd",
+		"accessTokenSecret" : "50bdf8ea1983e778"
+	},
+	"arduino" :{
+		"portname" : ""
+	},
+	"isInvadeMode" : false
+}

@@ -1,0 +1,22 @@
+{
+  "name": "RestServer",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "express": "^4.13.0",
+    "body-parser": "^1.13.1",
+    "mongoose": "^4.0.6",
+    "simple-ssh": "^0.8.6",
+    "node-gcm": "^0.10.0",
+    "flickrapi": "^0.3.32",
+    "request" : "^2.58.0",
+    "serialport": "^1.7.4"
+  }
+}
