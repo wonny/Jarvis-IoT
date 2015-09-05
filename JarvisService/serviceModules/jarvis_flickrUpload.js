@@ -1,11 +1,11 @@
 var Flickr = require("flickrapi"),
     flickrOptions = {
-      api_key: config.flickr.api_key,
+      api_key: config.flickr.apikey,
       secret: config.flickr.secret,
-      permissions: config.flickr.permissions,
-      user_id: config.flickr.user_id,
-      access_token: config.flickr.access_token,
-      access_token_secret: config.flickr.access_token_secret
+      permissions: config.flickr.permission,
+      user_id: config.flickr.userId,
+      access_token: config.flickr.accessToken,
+      access_token_secret: config.flickr.accessTokenSecret
     };
 
 var  invadeDetect = require("./jarvis_push");
