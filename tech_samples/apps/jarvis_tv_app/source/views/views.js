@@ -27,8 +27,8 @@ enyo.kind({
 					{name: "title", classes: "panels-flickr-title"}
 				]},
 				{name: "more", style: "background-color: #111111;", components: [
-					{kind: "onyx.Button", content: "more photos", classes: "panels-flickr-more-button", ontap: "more"},
-					{name: "moreSpinner", kind: "Image", src: "assets/spinner.png", classes: "panels-flickr-more-spinner"}
+				//{kind: "onyx.Button", content: "more photos", classes: "panels-flickr-more-button", ontap: "more"},
+				//  {name: "moreSpinner", kind: "Image", src: "assets/spinner.png", classes: "panels-flickr-more-spinner"}
 				]}
 			]}
 		]},
@@ -70,55 +70,53 @@ enyo.kind({
         max_list_count = this.$.list.count;
         page_per_picture_count = 8
 
-         if (inEvent.keyCode === 38) {
-    		// respond to up key
-        	if (this.key_index > 0){
-	        	this.key_index--;
-	            console.log(this.key_index);
-	            this.$.list.select(this.key_index, style);
-	        }else if(this.key_index == 0){
-	        	this.$.list.select(this.key_index, style);
-	        }
-
-        	// scrolling up
-			if (this.key_index % page_per_picture_count ==0){
-			   	row = this.key_index;
-			   	this.$.list.scrollToRow(row-7);
-			   	}
-
-        }else if(inEvent.keyCode === 40){
-        	// respond to down key
-        	if (this.key_index < max_list_count-1){
-        		if (this.key_index >= 0){
-        			this.key_index++;
-        			
-        			console.log(this.key_index);
-	        		this.$.list.select(this.key_index, style);
-	        		
-	        	}
-	        	// scrolling down
-				if (this.key_index % page_per_picture_count ==0){
-			    	row = this.key_index;
-			    	this.$.list.scrollToRow(row);
-		    	}
-       		}
-       	}      	
-
-    // get photo by keyboard event
-		if (enyo.Panels.isScreenNarrow()) {
-			this.setIndex(1);
-		}
-		this.$.imageSpinner.start();
-		
-		var item = this.results[this.key_index];
-
-		if (item.original == this.$.flickrImage.getSrc()) {
-			this.imageLoaded();
-		} else {
-			this.$.flickrImage.hide();
-			this.$.flickrImage.setSrc(item.original);
-		}
-
+        if (inEvent.keyCode == 38) {
+        // respond to up key
+            if (this.key_index > 0){
+                this.key_index--;
+                console.log(this.key_index);
+                this.$.list.select(this.key_index, style);
+            }else if(this.key_index == 0){
+                this.$.list.select(this.key_index, style);
+            }
+            // scrolling up
+            if (this.key_index % page_per_picture_count ==0){
+                row = this.key_index;
+                this.$.list.scrollToRow(row-7);
+            }
+        }else if(inEvent.keyCode == 40){
+                // respond to down key
+                if (this.key_index < max_list_count-1){
+                    if (this.key_index >= 0){
+                        this.key_index++;
+                        console.log(this.key_index);
+                        this.$.list.select(this.key_index, style);
+                    }
+                // scrolling down
+                if (this.key_index % page_per_picture_count ==0){
+                    row = this.key_index;
+                    this.$.list.scrollToRow(row);
+                }
+            }
+        }
+        // get photo by keyboard event
+        if (inEvent.keyCode == 38 || inEvent.keyCode == 40){
+            if (this.results == 0){
+                console.log("There`s no search results");
+        }else{
+                if (enyo.Panels.isScreenNarrow()) {
+                    this.setIndex(1);
+                }
+              this.$.imageSpinner.start();
+              var item = this.results[this.key_index];
+              if (item.original == this.$.flickrImage.getSrc()) {
+                    this.imageLoaded();
+                } else {
+                    this.$.flickrImage.hide();
+                    this.$.flickrImage.setSrc(item.original);
+                }
+            }
+        }
     },
 
 	search: function() {
@@ -130,7 +128,7 @@ enyo.kind({
 	},
 	searchResults: function(inSender, inResults) {
 		this.$.searchSpinner.hide();
-		this.$.moreSpinner.hide();
+		//this.$.moreSpinner.hide();
 		this.results = this.results.concat(inResults);
 		this.$.list.setCount(this.results.length);
 		if (this.page === 0) {
@@ -236,18 +234,17 @@ enyo.kind({
 		inResponse = JSON.parse(inResponse);
 		this.processResponse(inSender, inResponse);
 	},
-	processResponse: function(inSender, inResponse) {
+	processResponse: function(inSender, inResponse) {	
 		var photos = inResponse.photos ? inResponse.photos.photo || [] : [];
-
+		
 		for (var i=0, p; (p=photos[i]); i++) {
-			//var urlprefix = "http://farm" + p.farm + ".static.flickr.com/" + p.server + "/" + p.id + "_" + p.secret;
 			var urlprefix = "http://c1.staticflickr.com/" + p.farm + "/" + p.server + "/" + p.id + "_" + p.secret;
-			console.log("*****************")
-			console.log(urlprefix)
 			p.thumbnail = urlprefix + "_s.jpg";
 			p.original = urlprefix + ".jpg";
 		}
 		this.doResults(photos);
 		return photos;
+
+
 	}
 });
