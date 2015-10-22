@@ -37,6 +37,7 @@ JarvisApp
 The App for Only Demo. The full version will later Release.
 
 ``` sh
+Android mobile app
 cd Jarvis-IoT/JarvisApp/bin
 adb install JarvisApp.apk
 
