@@ -2,6 +2,13 @@
 
 ## Jarvis is a IoT service designed for IoT Home Security.
 
+### Basic Scenario
+
+  Server running -> sensor Intrusion Detection -> Photos and Video Recording -> cloud upload( Flickr ) ->
+  Intrusion alerts to registered users
+  
+  ※ Video is not implemented  ( ~~ing )
+
 ### Installation & Running
 
 Basic Installation
@@ -29,4 +36,10 @@ The App for Only Demo. The full version will later Release.
 ``` sh
 cd Jarvis-IoT/JarvisApp/bin
 adb install JarvisApp.apk
+```
+### Test
+
+``` sh
+cd Jarvis-IoT/JarvisService
+node client.js test.jpg
 ```
