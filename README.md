@@ -39,6 +39,9 @@ The App for Only Demo. The full version will later Release.
 ``` sh
 cd Jarvis-IoT/JarvisApp/bin
 adb install JarvisApp.apk
+
+WebOS TV app
+cd Jarvis-IoT/tech_samples/apps/jarvis_tv_app
 ```
 ### Test
 
