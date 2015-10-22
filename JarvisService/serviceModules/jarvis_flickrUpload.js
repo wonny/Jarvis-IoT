@@ -1,6 +1,6 @@
 var Flickr = require("flickrapi"),
     flickrOptions = {
-      api_key: config.flickr.apikey,
+      api_key: config.flickr.apiKey,
       secret: config.flickr.secret,
       permissions: config.flickr.permission,
       user_id: config.flickr.userId,

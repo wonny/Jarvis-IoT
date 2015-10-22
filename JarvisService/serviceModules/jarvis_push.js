@@ -9,7 +9,7 @@ var registrationIds = [];
 
 exports.sendMessage = function(data){
 	console.log( data);
-	//TO-DO : DB에 저장된 값을 가져 와야함. ( 처리 )
+	//TO-DO : DB에 저장된 값을 가져 와야함. ( 처리완료 )
 	jarvisDB.userFind(null, function(results){
 		for( var key in results ){
 			registrationIds.push( results[key].registrationID )

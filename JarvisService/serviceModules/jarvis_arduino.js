@@ -48,12 +48,12 @@ function getArduinoSerialComName(callback) {
 
         ports.forEach(function(port) {
         	console.log( "connect", port );
-            //if (typeof port.manufacturer === 'string' && port.manufacturer.toLowerCase().indexOf('arduino') > -1) {
+            if (typeof port.manufacturer === 'string' && port.manufacturer.toLowerCase().indexOf('arduino') > -1) {
                 if (typeof callback === 'function') {
                     callback(null, port.comName);
                     return;
                 }
-            //}
+            }
         });
     });
 }

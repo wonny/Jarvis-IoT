@@ -20,31 +20,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/jarvis', rest);
 
 /*mongodb use*/
-/*mongoose.connect(connectionString, function(err){
+mongoose.connect(connectionString, function(err){
   if( err ){
     console.log('mongoose connection error :'+err);
-        throw err;
+    //throw err;
+  }else{
+    console.log(config.database.dbName + ' mongoDB connection Success!!!');
   }
-  console.log(config.database.dbName + ' mongoDB connection Success!!!');
 
   app.listen(app.get('port'), function(){
-      console.log('Express server listening on port ' + app.get('port'));
-
-      //TO-DO : Aduino Sensor Data Receive logic
-      //arduionCon.connectToArduino(/*callback function : take Picture*/);
-
-      //jarvisSsh.launchapp("com.palm.app.enyo2sampler"); //ssh test
-//  });
-//});
-
-/*mongodb not use*/
-app.listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
 
     //TO-DO : Aduino Sensor Data Receive logic
     //arduionCon.connectToArduino(/*callback function : take Picture*/);
-    
-    //arduionCon.connectToArduino(jarvisUpload.invadeImageUpload) //Test
+
+    //jarvisSsh.launchapp("com.palm.app.enyo2sampler"); //ssh test
+  });
 });
 
 /*var os = require('os');
