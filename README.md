@@ -3,7 +3,6 @@
 ## Jarvis is a IoT service designed for IoT Home Security.
 
 ### Basic Scenario
-
   1. Server Running
   2. Sensor Intrusion Detection
   3. Photos and Video Recording
@@ -13,8 +12,7 @@
 ※ Video is not implemented yet (TBD) 
 
 ### Installation & Running
-
-Basic Installation
+####Basic Installation
   - Node.js
   - modgoDB
   - Android ADB
