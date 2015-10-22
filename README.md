@@ -4,10 +4,13 @@
 
 ### Basic Scenario
 
-  Server Running -> Sensor Intrusion Detection -> Photos and Video Recording -> Cloud Upload( Flickr ) ->
-  Intrusion alerts to registered users
+  1. Server Running
+  2. Sensor Intrusion Detection
+  3. Photos and Video Recording
+  4. Cloud Upload( Flickr )
+  5. Intrusion alerts to registered users
   
-  ※ Video is not implemented  (TBD)
+  ※ Video is not implemented yet (TBD)
   
 ### Installation & Running
 
