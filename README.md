@@ -2,7 +2,7 @@
 
 ## Jarvis is a IoT service designed for IoT Home Security.
 
-### Basic Scenario
+### Basic Scenario Step
   1. Server Running
   2. Sensor Intrusion Detection
   3. Photos and Video Recording
