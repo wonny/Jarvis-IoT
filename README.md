@@ -7,7 +7,7 @@
   1. Server Running
   2. Sensor Intrusion Detection
   3. Photos and Video Recording
-  4. Cloud Upload(Flickr)
+  4. Cloud(Flickr) Upload
   5. Intrusion alerts to registered users
   
   ※ Video is not implemented yet (TBD)
