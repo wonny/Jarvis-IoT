@@ -12,12 +12,12 @@
 ※ Video is not implemented yet (TBD) 
 
 ### Installation & Running
-####Basic Installation
+#####Basic Installation
   - Node.js
   - modgoDB
   - Android ADB
 
-JarvisService 
+#####JarvisService 
 
 ``` sh
 git clone https://github.com/wonny/Jarvis-IoT.git
@@ -30,7 +30,7 @@ node Jarvis.cmd -> Jarvis Server Running
 mongod --dbpath /* the path that you want to use the db */
 ```
 
-JarvisApp
+#####JarvisApp
 
 The App for Only Demo. The full version will later Release.
 
