@@ -17,8 +17,7 @@
   - modgoDB
   - Android ADB
 
-#####JarvisService 
-
+#####JarvisService
 ``` sh
 git clone https://github.com/wonny/Jarvis-IoT.git
 cd Jarvis-IoT/JarvisService
@@ -29,11 +28,8 @@ node Jarvis.cmd -> Jarvis Server Running
 ``` sh
 mongod --dbpath /* the path that you want to use the db */
 ```
-
 #####JarvisApp
-
 The App for Only Demo. The full version will later Release.
-
 ``` sh
 Android mobile app
 cd Jarvis-IoT/JarvisApp/bin
@@ -43,7 +39,6 @@ WebOS TV app
 cd Jarvis-IoT/tech_samples/apps/jarvis_tv_app
 ```
 ### Test
-
 ``` sh
 cd Jarvis-IoT/JarvisService
 node client.js test.jpg
