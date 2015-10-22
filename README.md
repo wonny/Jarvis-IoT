@@ -9,6 +9,7 @@
   3. Photos and Video Recording
   4. Cloud(Flickr) Upload
   5. Intrusion alerts to registered users
+  5. Intrusion alerts to registered users
   
   ※ Video is not implemented yet (TBD)
   
